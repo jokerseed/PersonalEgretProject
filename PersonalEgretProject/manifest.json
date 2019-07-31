@@ -18,6 +18,10 @@
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
-		"bin-debug/ThemeAdapter.js"
+		"bin-debug/ThemeAdapter.js",
+		"bin-debug/core/clock/ClockManager.js",
+		"bin-debug/core/mvc/control/observer/Observer.js",
+		"bin-debug/core/mvc/interfaces/Interfaces.js",
+		"bin-debug/core/mvc/view/AbstractMediator.js"
 	]
 }
