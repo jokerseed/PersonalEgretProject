@@ -116,6 +116,7 @@ var Main = (function (_super) {
                     case 4:
                         userInfo = _a.sent();
                         console.log(userInfo);
+                        game.ViewManager.instance.a();
                         return [2 /*return*/];
                 }
             });
