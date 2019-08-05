@@ -19,8 +19,6 @@
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
 		"bin-debug/ThemeAdapter.js",
-		"bin-debug/core/extends/Extends.js",
-		"bin-debug/core/mvc/interfaces/Interfaces.js",
-		"bin-debug/core/mvc/view/ViewManager.js"
+		"bin-debug/game/GameFullView.js"
 	]
 }
