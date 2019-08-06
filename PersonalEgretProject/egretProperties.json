@@ -42,6 +42,50 @@
     {
       "name": "matchvs",
       "path": "./libs/matchvs"
+    },
+    {
+      "name": "weixinapi",
+      "path": "../weixinapi"
+    },
+    {
+      "name": "ecs",
+      "path": "../ecs"
+    },
+    {
+      "name": "keyboard",
+      "path": "../keyboard"
+    },
+    {
+      "name": "mouse",
+      "path": "../mouse"
+    },
+    {
+      "name": "md5",
+      "path": "../md5"
+    },
+    {
+      "name": "particle",
+      "path": "../particle"
+    },
+    {
+      "name": "jszip",
+      "path": "../jszip"
+    },
+    {
+      "name": "socket.io",
+      "path": "../socket.io"
+    },
+    {
+      "name": "combobox",
+      "path": "../combobox"
+    },
+    {
+      "name": "treeview",
+      "path": "../treeview"
+    },
+    {
+      "name": "gesture",
+      "path": "../gesture"
     }
   ]
 }

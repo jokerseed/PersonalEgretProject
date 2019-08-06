@@ -13,11 +13,28 @@ var game;
     var GameFullView = (function (_super) {
         __extends(GameFullView, _super);
         function GameFullView() {
-            return _super !== null && _super.apply(this, arguments) || this;
+            return _super.call(this) || this;
         }
+        GameFullView.prototype.childrenCreated = function () {
+            _super.prototype.childrenCreated.call(this);
+            var self = this;
+            self.test();
+        };
+        GameFullView.prototype.test = function () {
+            var bodyConfig = new BodyConfig();
+            bodyConfig.appId = "wxb801ecbdf34b0010";
+            bodyConfig.debug = true;
+            /// ... 其他的配置属性赋值
+            /// 通过config接口注入权限验证配置
+            if (wx) {
+                wx.config(bodyConfig);
+                wx.ready(function () {
+                    /// 在这里调用微信相关功能的 API
+                });
+            }
+        };
         return GameFullView;
     }(eui.Component));
     game.GameFullView = GameFullView;
     __reflect(GameFullView.prototype, "game.GameFullView");
 })(game || (game = {}));
-//# sourceMappingURL=GameFullView.js.map

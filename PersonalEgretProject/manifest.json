@@ -11,7 +11,18 @@
 		"libs/modules/experimental/experimental.js",
 		"libs/modules/egretia-sdk/egretia-sdk.js",
 		"libs/modules/promise/promise.js",
-		"libs/matchvs/matchvs.js"
+		"libs/matchvs/matchvs.js",
+		"libs/modules/weixinapi/weixinapi.js",
+		"libs/modules/ecs/ecs.js",
+		"libs/modules/keyboard/keyboard.js",
+		"libs/modules/mouse/mouse.js",
+		"libs/modules/md5/md5.js",
+		"libs/modules/particle/particle.js",
+		"libs/modules/jszip/jszip.js",
+		"libs/modules/socket.io/socket.io.js",
+		"libs/modules/combobox/combobox.js",
+		"libs/modules/treeview/treeview.js",
+		"libs/modules/gesture/gesture.js"
 	],
 	"game": [
 		"bin-debug/AssetAdapter.js",
