@@ -13,14 +13,20 @@ var game;
     var GameFullView = (function (_super) {
         __extends(GameFullView, _super);
         function GameFullView() {
-            return _super.call(this) || this;
+            var _this = _super.call(this) || this;
+            var self = _this;
+            self._kb = new KeyBoard();
+            self._kb.addEventListener(KeyBoard.onkeydown, self.keyboard, self);
+            return _this;
         }
         GameFullView.prototype.childrenCreated = function () {
             _super.prototype.childrenCreated.call(this);
             var self = this;
-            self.test();
+            self.wx();
+            self.startParticle();
         };
-        GameFullView.prototype.test = function () {
+        //微信
+        GameFullView.prototype.wx = function () {
             var bodyConfig = new BodyConfig();
             bodyConfig.appId = "wxb801ecbdf34b0010";
             bodyConfig.debug = true;
@@ -33,8 +39,25 @@ var game;
                 });
             }
         };
+        //键盘点击
+        GameFullView.prototype.keyboard = function (event) {
+            if (true)
+                console.log(event.data);
+        };
+        //粒子
+        GameFullView.prototype.startParticle = function () {
+            var self = this;
+            var texture = RES.getRes("star_png");
+            var config = RES.getRes("star_json");
+            var system = new particle.GravityParticleSystem(texture, config);
+            if (true)
+                console.log(system);
+            system.start();
+            self.grp.addChild(system);
+        };
         return GameFullView;
     }(eui.Component));
     game.GameFullView = GameFullView;
     __reflect(GameFullView.prototype, "game.GameFullView");
 })(game || (game = {}));
+//# sourceMappingURL=GameFullView.js.map
