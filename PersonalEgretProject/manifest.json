@@ -26,10 +26,12 @@
 	],
 	"game": [
 		"bin-debug/AssetAdapter.js",
+		"bin-debug/GameApp.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
 		"bin-debug/ThemeAdapter.js",
+		"bin-debug/core/res/GameRes.js",
 		"bin-debug/game/GameFullView.js"
 	]
 }
