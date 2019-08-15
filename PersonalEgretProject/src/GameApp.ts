@@ -30,10 +30,12 @@ namespace game {
             await this.loadResource()
             await this.init();
             this.createGameScene();
-            const result = await RES.getResAsync("description_json")
-            await platform.login();
-            const userInfo = await platform.getUserInfo();
-            console.log(userInfo);
+            /**
+             * 平台接入位置
+             */
+            // await platform.login();
+            // const userInfo = await platform.getUserInfo();
+            // console.log(userInfo);
         }
 
         private async loadResource() {
@@ -76,8 +78,7 @@ namespace game {
          * Create scene interface
          */
         protected createGameScene(): void {
-            let self = this;
-            layerManager.add(ELayer.one, new GameFullView());
+            socketManager.connectServer();
         }
     }
 }

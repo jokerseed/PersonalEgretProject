@@ -17,13 +17,14 @@ namespace game {
             let self = this;
             self.wx();
             self.startParticle();
+            self.testWebsocket();
         }
 
         //微信
         public wx() {
             var bodyConfig: BodyConfig = new BodyConfig();
             bodyConfig.appId = "wxb801ecbdf34b0010";
-            bodyConfig.debug = true;    
+            bodyConfig.debug = true;
             /// ... 其他的配置属性赋值
             /// 通过config接口注入权限验证配置
             if (wx) {
@@ -48,6 +49,11 @@ namespace game {
             if (DEBUG) console.log(system);
             system.start();
             self.grp.addChild(system);
+        }
+
+        //websocket
+        public testWebsocket() {
+            socketManager.sendMessage();
         }
     }
 }

@@ -24,6 +24,7 @@ var game;
             var self = this;
             self.wx();
             self.startParticle();
+            self.testWebsocket();
         };
         //微信
         GameFullView.prototype.wx = function () {
@@ -54,6 +55,10 @@ var game;
                 console.log(system);
             system.start();
             self.grp.addChild(system);
+        };
+        //websocket
+        GameFullView.prototype.testWebsocket = function () {
+            game.socketManager.sendMessage();
         };
         return GameFullView;
     }(eui.Component));

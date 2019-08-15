@@ -1,7 +1,7 @@
 namespace game {
     export class ResManager extends egret.EventDispatcher {
         /**
-         * 加载资源配置文件
+         * 加载资源配置文件default.res.json
          */
         public loadConfig(url: string, resourceRoot: string) {
             let self = this;

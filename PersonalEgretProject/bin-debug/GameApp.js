@@ -72,7 +72,6 @@ var game;
         };
         GameApp.prototype.runGame = function () {
             return __awaiter(this, void 0, void 0, function () {
-                var result, userInfo;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, this.loadResource()];
@@ -82,16 +81,6 @@ var game;
                         case 2:
                             _a.sent();
                             this.createGameScene();
-                            return [4 /*yield*/, RES.getResAsync("description_json")];
-                        case 3:
-                            result = _a.sent();
-                            return [4 /*yield*/, platform.login()];
-                        case 4:
-                            _a.sent();
-                            return [4 /*yield*/, platform.getUserInfo()];
-                        case 5:
-                            userInfo = _a.sent();
-                            console.log(userInfo);
                             return [2 /*return*/];
                     }
                 });
@@ -161,8 +150,7 @@ var game;
          * Create scene interface
          */
         GameApp.prototype.createGameScene = function () {
-            var self = this;
-            game.layerManager.add(0 /* one */, new game.GameFullView());
+            game.socketManager.connectServer();
         };
         return GameApp;
     }(eui.UILayer));

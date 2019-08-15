@@ -16,7 +16,7 @@ var game;
             return _super !== null && _super.apply(this, arguments) || this;
         }
         /**
-         * 加载资源配置文件
+         * 加载资源配置文件default.res.json
          */
         ResManager.prototype.loadConfig = function (url, resourceRoot) {
             var self = this;
