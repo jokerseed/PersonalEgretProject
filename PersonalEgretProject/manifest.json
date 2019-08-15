@@ -31,7 +31,8 @@
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
 		"bin-debug/ThemeAdapter.js",
-		"bin-debug/core/res/GameRes.js",
+		"bin-debug/core/layer/LayerManager.js",
+		"bin-debug/core/res/ResManager.js",
 		"bin-debug/game/GameFullView.js"
 	]
 }

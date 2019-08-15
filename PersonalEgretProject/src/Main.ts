@@ -26,7 +26,6 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
-
 class Main extends eui.UILayer {
 
 
@@ -59,6 +58,7 @@ class Main extends eui.UILayer {
 
     private async runGame() {
         await this.loadResource()
+        await this.init();
         this.createGameScene();
         const result = await RES.getResAsync("description_json")
         await platform.login();
@@ -68,15 +68,13 @@ class Main extends eui.UILayer {
 
     private async loadResource() {
         try {
-            const loadingView = new LoadingUI();
-            this.stage.addChild(loadingView);
-
+            // const loadingView = new LoadingUI();
+            // this.stage.addChild(loadingView);
             await RES.loadConfig("resource/default.res.json", "resource/");
             await this.loadTheme();
-            
-            await RES.loadGroup("preload", 0, loadingView);
-            await RES.loadGroup("particle", 0, loadingView);
-            this.stage.removeChild(loadingView);
+            // await RES.loadGroup("preload", 0, loadingView);
+            // await RES.loadGroup("particle", 0, loadingView);
+            // this.stage.removeChild(loadingView);
         }
         catch (e) {
             console.error(e);
@@ -97,11 +95,23 @@ class Main extends eui.UILayer {
     }
 
     /**
+     * 初始化
+     */
+    private async init() {
+        game.layerManager.setParent(this);
+        const loadingView = new LoadingUI();
+        this.stage.addChild(loadingView);
+        await RES.loadGroup("preload", 0, loadingView);
+        await RES.loadGroup("particle", 0, loadingView);
+        this.stage.removeChild(loadingView);
+    }
+
+    /**
      * 创建场景界面
      * Create scene interface
      */
     protected createGameScene(): void {
         let self = this;
-        self.addChild(new game.GameFullView());
+        game.layerManager.add(game.ELayer.one, new game.GameFullView());
     }
 }

@@ -1,12 +1,5 @@
 namespace game {
-    export class GameRes {
-        private static _instance: GameRes;
-
-        public static get instance() {
-            let self = this;
-            return self._instance || (self._instance = new GameRes());
-        }
-
+    export class ResManager extends egret.EventDispatcher {
         /**
          * 加载资源配置文件
          */
@@ -45,11 +38,13 @@ namespace game {
         }
 
         private onGroupProgress(event: RES.ResourceEvent) {
-            
+
         }
 
         private onItemLoadError(event: RES.ResourceEvent) {
             console.warn("Url:" + event.resItem.url + " has failed to load");
         }
     }
+
+    export let resManager = new ResManager();
 }

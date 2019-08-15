@@ -1,35 +1,36 @@
 var __reflect = (this && this.__reflect) || function (p, c, t) {
     p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
 };
+var __extends = this && this.__extends || function __extends(t, e) { 
+ function r() { 
+ this.constructor = t;
+}
+for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
+r.prototype = e.prototype, t.prototype = new r();
+};
 var game;
 (function (game) {
-    var GameRes = (function () {
-        function GameRes() {
+    var ResManager = (function (_super) {
+        __extends(ResManager, _super);
+        function ResManager() {
+            return _super !== null && _super.apply(this, arguments) || this;
         }
-        Object.defineProperty(GameRes, "instance", {
-            get: function () {
-                var self = this;
-                return self._instance || (self._instance = new GameRes());
-            },
-            enumerable: true,
-            configurable: true
-        });
         /**
          * 加载资源配置文件
          */
-        GameRes.prototype.loadConfig = function (url, resourceRoot) {
+        ResManager.prototype.loadConfig = function (url, resourceRoot) {
             var self = this;
             RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, self.onConfigComplete, self);
             RES.loadConfig(url, resourceRoot);
         };
-        GameRes.prototype.onConfigComplete = function (event) {
+        ResManager.prototype.onConfigComplete = function (event) {
             var self = this;
             RES.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE, self.onConfigComplete, self);
         };
         /**
          * 加载资源组
          */
-        GameRes.prototype.loadGroup = function (name, priority) {
+        ResManager.prototype.loadGroup = function (name, priority) {
             if (priority === void 0) { priority = 0; }
             var self = this;
             RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, self.onGroupComplete, self);
@@ -38,23 +39,24 @@ var game;
             RES.addEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, self.onItemLoadError, self);
             RES.loadGroup(name, priority);
         };
-        GameRes.prototype.onGroupComplete = function (event) {
+        ResManager.prototype.onGroupComplete = function (event) {
             RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onGroupComplete, this);
             RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onGroupLoadError, this);
             RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onGroupProgress, this);
             RES.removeEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, this.onItemLoadError, this);
         };
-        GameRes.prototype.onGroupLoadError = function (event) {
+        ResManager.prototype.onGroupLoadError = function (event) {
             console.warn("Group:" + event.groupName + " has failed to load");
         };
-        GameRes.prototype.onGroupProgress = function (event) {
+        ResManager.prototype.onGroupProgress = function (event) {
         };
-        GameRes.prototype.onItemLoadError = function (event) {
+        ResManager.prototype.onItemLoadError = function (event) {
             console.warn("Url:" + event.resItem.url + " has failed to load");
         };
-        return GameRes;
-    }());
-    game.GameRes = GameRes;
-    __reflect(GameRes.prototype, "game.GameRes");
+        return ResManager;
+    }(egret.EventDispatcher));
+    game.ResManager = ResManager;
+    __reflect(ResManager.prototype, "game.ResManager");
+    game.resManager = new ResManager();
 })(game || (game = {}));
-//# sourceMappingURL=GameRes.js.map
+//# sourceMappingURL=ResManager.js.map

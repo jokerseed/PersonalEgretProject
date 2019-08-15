@@ -23,7 +23,7 @@ namespace game {
         public wx() {
             var bodyConfig: BodyConfig = new BodyConfig();
             bodyConfig.appId = "wxb801ecbdf34b0010";
-            bodyConfig.debug = true;
+            bodyConfig.debug = true;    
             /// ... 其他的配置属性赋值
             /// 通过config接口注入权限验证配置
             if (wx) {
