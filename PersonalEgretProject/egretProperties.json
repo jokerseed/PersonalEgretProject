@@ -1,91 +1,88 @@
 {
-  "engineVersion": "5.2.25",
-  "compilerVersion": "5.2.25",
-  "template": {},
-  "target": {
-    "current": "web"
-  },
-  "modules": [
-    {
-      "name": "egret"
-    },
-    {
-      "name": "eui"
-    },
-    {
-      "name": "assetsmanager"
-    },
-    {
-      "name": "dragonBones"
-    },
-    {
-      "name": "game"
-    },
-    {
-      "name": "tween"
-    },
-    {
-      "name": "socket"
-    },
-    {
-      "name": "experimental"
-    },
-    {
-      "name": "egret-facebook"
-    },
-    {
-      "name": "egretia-sdk"
-    },
-    {
-      "name": "promise"
-    },
-    {
-      "name": "matchvs",
-      "path": "./libs/matchvs"
-    },
-    {
-      "name": "weixinapi",
-      "path": "../weixinapi"
-    },
-    {
-      "name": "ecs",
-      "path": "../ecs"
-    },
-    {
-      "name": "keyboard",
-      "path": "../keyboard"
-    },
-    {
-      "name": "mouse",
-      "path": "../mouse"
-    },
-    {
-      "name": "md5",
-      "path": "../md5"
-    },
-    {
-      "name": "particle",
-      "path": "../particle"
-    },
-    {
-      "name": "jszip",
-      "path": "../jszip"
-    },
-    {
-      "name": "socket.io",
-      "path": "../socket.io"
-    },
-    {
-      "name": "combobox",
-      "path": "../combobox"
-    },
-    {
-      "name": "treeview",
-      "path": "../treeview"
-    },
-    {
-      "name": "gesture",
-      "path": "../gesture"
-    }
-  ]
+	"engineVersion": "5.2.26",
+	"compilerVersion": "5.2.26",
+	"template": {},
+	"target": {
+		"current": "web"
+	},
+	"modules": [
+		{
+			"name": "egret"
+		},
+		{
+			"name": "eui"
+		},
+		{
+			"name": "assetsmanager"
+		},
+		{
+			"name": "dragonBones"
+		},
+		{
+			"name": "game"
+		},
+		{
+			"name": "tween"
+		},
+		{
+			"name": "socket"
+		},
+		{
+			"name": "egret-facebook"
+		},
+		{
+			"name": "egretia-sdk"
+		},
+		{
+			"name": "promise"
+		},
+		{
+			"name": "matchvs",
+			"path": "./libs/matchvs"
+		},
+		{
+			"name": "weixinapi",
+			"path": "../weixinapi"
+		},
+		{
+			"name": "ecs",
+			"path": "../ecs"
+		},
+		{
+			"name": "keyboard",
+			"path": "../keyboard"
+		},
+		{
+			"name": "mouse",
+			"path": "../mouse"
+		},
+		{
+			"name": "md5",
+			"path": "../md5"
+		},
+		{
+			"name": "particle",
+			"path": "../particle"
+		},
+		{
+			"name": "jszip",
+			"path": "../jszip"
+		},
+		{
+			"name": "socket.io",
+			"path": "../socket.io"
+		},
+		{
+			"name": "combobox",
+			"path": "../combobox"
+		},
+		{
+			"name": "treeview",
+			"path": "../treeview"
+		},
+		{
+			"name": "gesture",
+			"path": "../gesture"
+		}
+	]
 }

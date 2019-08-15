@@ -8,7 +8,6 @@
 		"libs/modules/game/game.js",
 		"libs/modules/tween/tween.js",
 		"libs/modules/socket/socket.js",
-		"libs/modules/experimental/experimental.js",
 		"libs/modules/egretia-sdk/egretia-sdk.js",
 		"libs/modules/promise/promise.js",
 		"libs/matchvs/matchvs.js",
@@ -25,8 +24,8 @@
 		"libs/modules/gesture/gesture.js"
 	],
 	"game": [
-		"bin-debug/AssetAdapter.js",
 		"bin-debug/GameApp.js",
+		"bin-debug/AssetAdapter.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
