@@ -7,6 +7,10 @@
 		{
 			"keys":"star_json,star_png",
 			"name":"particle"
+		},
+		{
+			"keys":"fish_json",
+			"name":"altas"
 		}
 	],
 	"resources":[
@@ -149,6 +153,12 @@
 			"name":"star_png",
 			"type":"image",
 			"url":"particle/star.png"
+		},
+		{
+			"name":"fish_json",
+			"subkeys":"fish_book@FishIcon01,fish_book@FishIcon02,fish_book@FishIcon03,fish_book@FishIcon04,fish_book@FishIcon05,fish_book@FishIcon06,fish_book@FishIcon07,fish_book@FishIcon08,fish_book@FishIcon09,fish_book@FishIcon10,fish_book@FishIcon11,fish_book@FishIcon12,fish_book@FishIcon13,fish_book@FishIcon14,fish_book@FishIcon15,fish_book@FishIcon19,fish_book@FishIcon20,fish_book@FishIcon21,fish_book@FishIcon22,fish_book@FishIcon23,fish_book@FishIcon24,fish_book@FishIcon25,fish_book@FishIcon26,fish_book@FishIcon27,fish_book@FishIcon28,fish_book@FishIcon29",
+			"type":"sheet",
+			"url":"altas/fish.json"
 		}
 	]
 }

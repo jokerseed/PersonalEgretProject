@@ -139,6 +139,9 @@ var game;
                             return [4 /*yield*/, RES.loadGroup("particle", 0, loadingView)];
                         case 2:
                             _a.sent();
+                            return [4 /*yield*/, RES.loadGroup("altas", 0, loadingView)];
+                        case 3:
+                            _a.sent();
                             this.stage.removeChild(loadingView);
                             return [2 /*return*/];
                     }

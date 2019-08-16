@@ -70,6 +70,7 @@ namespace game {
             this.stage.addChild(loadingView);
             await RES.loadGroup("preload", 0, loadingView);
             await RES.loadGroup("particle", 0, loadingView);
+            await RES.loadGroup("altas", 0, loadingView);
             this.stage.removeChild(loadingView);
         }
 

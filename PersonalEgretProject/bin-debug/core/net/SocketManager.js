@@ -18,6 +18,7 @@ var game;
             console.log("连接成功");
             var self = this;
             self._isConnected = true;
+            //打开一个类主界面
             game.layerManager.add(0 /* one */, new game.GameFullView());
         };
         /**
@@ -45,6 +46,13 @@ var game;
             }
             var cmd = '{"cmd":"uzwan_login","gameId":"0","from":"guzwan","userId":"3565526"}';
             self._socket.writeUTF(cmd);
+        };
+        /**
+         * 关闭套接字
+         */
+        SocketManager.prototype.closeConnect = function () {
+            var self = this;
+            self._socket.close();
         };
         return SocketManager;
     }());
