@@ -51,6 +51,14 @@ namespace game {
             var cmd = '{"cmd":"uzwan_login","gameId":"0","from":"guzwan","userId":"3565526"}';
             self._socket.writeUTF(cmd);
         }
+
+        /**
+         * 关闭套接字
+         */
+        public closeConnect() {
+            let self = this;
+            self._socket.close();
+        }
     }
 
     export let socketManager = new SocketManager();
