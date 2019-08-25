@@ -18,6 +18,9 @@ namespace game {
             self.wx();
             self.startParticle();
             self.testWebsocket();
+            //测试扩展原型链方法
+            egret.testExtends("测试原型链扩展方法");
+            console.log(self.myChildNum);
         }
 
         //微信
