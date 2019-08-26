@@ -44,6 +44,13 @@ namespace game {
         private onItemLoadError(event: RES.ResourceEvent) {
             console.warn("Url:" + event.resItem.url + " has failed to load");
         }
+
+        /**
+         * 清除资源缓存
+         */
+        public rmvRes(nameOrUrl: string) {
+            RES.destroyRes(name);
+        }
     }
 
     export let resManager = new ResManager();
