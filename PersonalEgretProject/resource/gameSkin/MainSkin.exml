@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing">
-	<e:Image source="bg_jpg"/>
+	<e:Image source="bg_jpg" horizontalCenter="0" verticalCenter="0"/>
 	<e:Group id="grp" top="0" left="0"/>
+	<e:Image id="img" horizontalCenter="0" verticalCenter="-460"/>
 </e:Skin>

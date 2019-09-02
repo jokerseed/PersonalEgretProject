@@ -40,10 +40,11 @@ var game;
             RES.loadGroup(name, priority);
         };
         ResManager.prototype.onGroupComplete = function (event) {
-            RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onGroupComplete, this);
-            RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onGroupLoadError, this);
-            RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onGroupProgress, this);
-            RES.removeEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, this.onItemLoadError, this);
+            var self = this;
+            RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, self.onGroupComplete, self);
+            RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, self.onGroupLoadError, self);
+            RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, self.onGroupProgress, self);
+            RES.removeEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, self.onItemLoadError, self);
         };
         ResManager.prototype.onGroupLoadError = function (event) {
             console.warn("Group:" + event.groupName + " has failed to load");
@@ -52,6 +53,15 @@ var game;
         };
         ResManager.prototype.onItemLoadError = function (event) {
             console.warn("Url:" + event.resItem.url + " has failed to load");
+        };
+        /**
+         * 清除资源缓存
+         * @param 资源名字
+         * @param 资源组名
+         * @param 资源路径
+         */
+        ResManager.prototype.rmvRes = function (nameOrUrl) {
+            RES.destroyRes(name);
         };
         return ResManager;
     }(egret.EventDispatcher));

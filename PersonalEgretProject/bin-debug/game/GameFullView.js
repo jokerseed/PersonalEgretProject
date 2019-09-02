@@ -28,6 +28,7 @@ var game;
             //测试扩展原型链方法
             egret.testExtends("测试原型链扩展方法");
             console.log(self.myChildNum);
+            self.testRes();
         };
         //微信
         GameFullView.prototype.wx = function () {
@@ -62,6 +63,11 @@ var game;
         //websocket
         GameFullView.prototype.testWebsocket = function () {
             game.socketManager.sendMessage();
+        };
+        //测试资源加载
+        GameFullView.prototype.testRes = function () {
+            var self = this;
+            self.img.source = "egret_icon_png";
         };
         return GameFullView;
     }(eui.Component));

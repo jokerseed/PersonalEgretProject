@@ -1,6 +1,7 @@
 namespace game {
     export class GameFullView extends eui.Component {
         public grp: eui.Group;
+        public img: eui.Image;
 
         private _kb: KeyBoard;
 
@@ -21,6 +22,7 @@ namespace game {
             //测试扩展原型链方法
             egret.testExtends("测试原型链扩展方法");
             console.log(self.myChildNum);
+            self.testRes();
         }
 
         //微信
@@ -57,6 +59,12 @@ namespace game {
         //websocket
         public testWebsocket() {
             socketManager.sendMessage();
+        }
+
+        //测试资源加载
+        public testRes() {
+            let self = this;
+            self.img.source = "egret_icon_png";
         }
     }
 }
