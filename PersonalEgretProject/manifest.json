@@ -35,6 +35,7 @@
 		"bin-debug/core/layer/LayerManager.js",
 		"bin-debug/core/net/SocketManager.js",
 		"bin-debug/core/res/ResManager.js",
+		"bin-debug/core/time/TimeManager.js",
 		"bin-debug/game/GameFullView.js"
 	]
 }

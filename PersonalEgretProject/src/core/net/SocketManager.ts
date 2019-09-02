@@ -61,5 +61,5 @@ namespace game {
         }
     }
 
-    export let socketManager = new SocketManager();
+    export const socketManager = new SocketManager();
 }

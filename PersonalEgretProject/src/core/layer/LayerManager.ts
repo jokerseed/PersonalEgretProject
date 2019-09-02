@@ -35,5 +35,5 @@ namespace game {
         }
     }
 
-    export let layerManager = new LayerManager();
+    export const layerManager = new LayerManager();
 }

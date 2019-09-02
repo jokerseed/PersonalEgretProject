@@ -29,6 +29,7 @@ var game;
             egret.testExtends("测试原型链扩展方法");
             console.log(self.myChildNum);
             self.testRes();
+            self.testTimer();
         };
         //微信
         GameFullView.prototype.wx = function () {
@@ -68,6 +69,13 @@ var game;
         GameFullView.prototype.testRes = function () {
             var self = this;
             self.img.source = "egret_icon_png";
+        };
+        //测试timer
+        GameFullView.prototype.testTimer = function () {
+            var self = this;
+            // timeManager.createTimer(500, 5);
+            // timeManager2.startEnterFrame();
+            game.timeManager3.start();
         };
         return GameFullView;
     }(eui.Component));

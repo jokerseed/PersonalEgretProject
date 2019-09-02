@@ -79,5 +79,5 @@ namespace game {
         }
     }
 
-    export let resManager = new ResManager();
+    export const resManager = new ResManager();
 }

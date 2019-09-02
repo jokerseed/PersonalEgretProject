@@ -23,6 +23,7 @@ namespace game {
             egret.testExtends("测试原型链扩展方法");
             console.log(self.myChildNum);
             self.testRes();
+            self.testTimer();
         }
 
         //微信
@@ -65,6 +66,14 @@ namespace game {
         public testRes() {
             let self = this;
             self.img.source = "egret_icon_png";
+        }
+
+        //测试timer
+        public testTimer() {
+            let self = this;
+            // timeManager.createTimer(500, 5);
+            // timeManager2.startEnterFrame();
+            // timeManager3.start();
         }
     }
 }

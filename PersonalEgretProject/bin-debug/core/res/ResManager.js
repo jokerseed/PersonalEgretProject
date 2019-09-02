@@ -17,18 +17,28 @@ var game;
         }
         /**
          * 加载资源配置文件default.res.json
+         * RES.loadConfig()通常应写在整个游戏最开始初始化的地方，并且只执行一次
+         * "resource/default.res.json"         "resource/"
          */
         ResManager.prototype.loadConfig = function (url, resourceRoot) {
             var self = this;
             RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, self.onConfigComplete, self);
+            RES.addEventListener(RES.ResourceEvent.CONFIG_LOAD_ERROR, self.onConfigError, self);
             RES.loadConfig(url, resourceRoot);
         };
         ResManager.prototype.onConfigComplete = function (event) {
             var self = this;
             RES.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE, self.onConfigComplete, self);
+            RES.removeEventListener(RES.ResourceEvent.CONFIG_LOAD_ERROR, self.onConfigError, self);
+        };
+        ResManager.prototype.onConfigError = function (event) {
+            var self = this;
         };
         /**
          * 加载资源组
+         * 可能有多个资源组在同时加载
+         * 由于网络原因资源加载失败，可设置重新加载    有可能网络失去连接，可设置一个标志位，记录加载次数，一定次数后提示网络连接中断
+         * priority参数越大，就会先加载
          */
         ResManager.prototype.loadGroup = function (name, priority) {
             if (priority === void 0) { priority = 0; }
@@ -53,6 +63,14 @@ var game;
         };
         ResManager.prototype.onItemLoadError = function (event) {
             console.warn("Url:" + event.resItem.url + " has failed to load");
+        };
+        /**
+         * 动态创建资源组
+         * groupName组名
+         * keys可以是配置好的资源名也可以是资源组名
+         */
+        ResManager.prototype.createGroup = function (groupName, keys) {
+            return RES.createGroup(groupName, keys);
         };
         /**
          * 清除资源缓存
