@@ -1,5 +1,5 @@
-var Base64;
-(function (Base64) {
+var game;
+(function (game) {
     //----------------base64--------------
     var base64Tab = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
         'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
@@ -39,7 +39,7 @@ var Base64;
         }
         return res.join('');
     }
-    Base64.base64Encode = base64Encode;
+    game.base64Encode = base64Encode;
     function decode(str) {
         var len = str.length;
         var i = 0;
@@ -63,7 +63,7 @@ var Base64;
         }
         return utf8TpUtf16(res.join(''));
     }
-    Base64.decode = decode;
+    game.decode = decode;
     function utf16TpUtf8(str) {
         var res = [], len = str.length;
         for (var i = 0; i < len; i++) {
@@ -152,5 +152,5 @@ var Base64;
         }
         return res.join('');
     }
-})(Base64 || (Base64 = {}));
+})(game || (game = {}));
 //# sourceMappingURL=Base64.js.map
