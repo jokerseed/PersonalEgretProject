@@ -1,4 +1,4 @@
-module game {
+namespace game {
     /**
      * Timer
      * 两个属性是 delay 与 repeatCount ,分别表示每次间隔的时间（以毫秒为单位）和执行的次数（如果次数为0，则表示不停的执行）

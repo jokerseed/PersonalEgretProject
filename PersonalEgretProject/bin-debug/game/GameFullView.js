@@ -75,7 +75,7 @@ var game;
             var self = this;
             // timeManager.createTimer(500, 5);
             // timeManager2.startEnterFrame();
-            game.timeManager3.start();
+            // timeManager3.start();
         };
         return GameFullView;
     }(eui.Component));
