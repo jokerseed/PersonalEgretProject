@@ -8,9 +8,17 @@ var game;
             var self = this;
             self._isConnected = false;
             var socket = self._socket = new egret.WebSocket();
+            /**二进制传输 */
+            self._socket.type = egret.WebSocket.TYPE_BINARY;
             socket.addEventListener(egret.Event.CONNECT, self.onConnectOpen, self);
             socket.addEventListener(egret.ProgressEvent.SOCKET_DATA, self.onReceiveData, self);
+            socket.addEventListener(egret.IOErrorEvent.IO_ERROR, self.error, self);
         }
+        /**
+         * 传输错误
+         */
+        SocketManager.prototype.error = function (e) {
+        };
         /**
          * 连接成功
          */
@@ -26,9 +34,25 @@ var game;
          */
         SocketManager.prototype.onReceiveData = function (event) {
             var self = this;
-            var msg = self._socket.readUTF();
-            console.log("收到数据：" + msg);
-            this.closeConnect();
+            // let msg = self._socket.readUTF();
+            // console.log("收到数据：" + msg);
+            //创建 ByteArray 对象
+            var byte = new egret.ByteArray();
+            //读取数据
+            this._socket.readBytes(byte);
+            //读取字符串信息
+            var msg = byte.readUTF();
+            //读取布尔值信息
+            var boo = byte.readBoolean();
+            //读取int值信息
+            var num = byte.readInt();
+            this.trace("收到数据:");
+            this.trace("readUTF : " + msg);
+            this.trace("readBoolean : " + boo.toString());
+            this.trace("readInt : " + num.toString());
+        };
+        SocketManager.prototype.trace = function (msg) {
+            console.log(msg);
         };
         /**
          * 连接服务器
@@ -42,12 +66,12 @@ var game;
          */
         SocketManager.prototype.sendMessage = function () {
             var self = this;
-            if (!self._isConnected) {
+            if (!self._isConnected || !self._socket.connected) {
                 return;
             }
-            var cmd = '{"cmd":"uzwan_login","gameId":"0","from":"guzwan","userId":"3565526"}';
-            var test = { "name": "我是大帅哥", age: 1 };
-            self._socket.writeUTF(JSON.stringify(test));
+            // let test = { "name": "我是大帅哥", age: 1 }
+            // self._socket.writeUTF(JSON.stringify(test));
+            self.sendData();
         };
         /**
          * 关闭套接字
@@ -55,6 +79,14 @@ var game;
         SocketManager.prototype.closeConnect = function () {
             var self = this;
             self._socket.close();
+        };
+        SocketManager.prototype.sendData = function () {
+            var byte = new egret.ByteArray();
+            byte.writeUTF("我是大帅哥");
+            byte.writeBoolean(false);
+            byte.writeInt(123);
+            byte.position = 0;
+            this._socket.writeBytes(byte);
         };
         return SocketManager;
     }());

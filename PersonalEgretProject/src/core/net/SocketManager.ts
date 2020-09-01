@@ -7,8 +7,18 @@ namespace game {
             let self = this;
             self._isConnected = false;
             let socket = self._socket = new egret.WebSocket();
+            /**二进制传输 */
+            self._socket.type = egret.WebSocket.TYPE_BINARY;
             socket.addEventListener(egret.Event.CONNECT, self.onConnectOpen, self);
             socket.addEventListener(egret.ProgressEvent.SOCKET_DATA, self.onReceiveData, self);
+            socket.addEventListener(egret.IOErrorEvent.IO_ERROR, self.error, self);
+        }
+
+        /**
+         * 传输错误
+         */
+        private error(e: egret.Event) {
+
         }
 
         /**
@@ -28,9 +38,26 @@ namespace game {
          */
         private onReceiveData(event: egret.ProgressEvent) {
             let self = this;
-            let msg = self._socket.readUTF();
-            console.log("收到数据：" + msg);
-            this.closeConnect();
+            // let msg = self._socket.readUTF();
+            // console.log("收到数据：" + msg);
+            //创建 ByteArray 对象
+            var byte: egret.ByteArray = new egret.ByteArray();
+            //读取数据
+            this._socket.readBytes(byte);
+            //读取字符串信息
+            var msg: string = byte.readUTF();
+            //读取布尔值信息
+            var boo: boolean = byte.readBoolean();
+            //读取int值信息
+            var num: number = byte.readInt();
+            this.trace("收到数据:");
+            this.trace("readUTF : " + msg);
+            this.trace("readBoolean : " + boo.toString());
+            this.trace("readInt : " + num.toString());
+        }
+
+        private trace(msg: any): void {
+            console.log(msg);
         }
 
         /**
@@ -46,12 +73,12 @@ namespace game {
          */
         public sendMessage() {
             let self = this;
-            if (!self._isConnected) {
+            if (!self._isConnected || !self._socket.connected) {
                 return;
             }
-            var cmd = '{"cmd":"uzwan_login","gameId":"0","from":"guzwan","userId":"3565526"}';
-            let test = { "name": "我是大帅哥", age: 1 }
-            self._socket.writeUTF(JSON.stringify(test));
+            // let test = { "name": "我是大帅哥", age: 1 }
+            // self._socket.writeUTF(JSON.stringify(test));
+            self.sendData();
         }
 
         /**
@@ -60,6 +87,15 @@ namespace game {
         public closeConnect() {
             let self = this;
             self._socket.close();
+        }
+
+        private sendData() {
+            var byte = new egret.ByteArray();
+            byte.writeUTF("我是大帅哥");
+            byte.writeBoolean(false);
+            byte.writeInt(123);
+            byte.position = 0;
+            this._socket.writeBytes(byte);
         }
     }
 
