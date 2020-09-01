@@ -28,6 +28,7 @@ var game;
             var self = this;
             var msg = self._socket.readUTF();
             console.log("收到数据：" + msg);
+            this.closeConnect();
         };
         /**
          * 连接服务器
@@ -45,7 +46,8 @@ var game;
                 return;
             }
             var cmd = '{"cmd":"uzwan_login","gameId":"0","from":"guzwan","userId":"3565526"}';
-            self._socket.writeUTF(cmd);
+            var test = { "name": "我是大帅哥", age: 1 };
+            self._socket.writeUTF(JSON.stringify(test));
         };
         /**
          * 关闭套接字

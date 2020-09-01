@@ -30,6 +30,7 @@ namespace game {
             let self = this;
             let msg = self._socket.readUTF();
             console.log("收到数据：" + msg);
+            this.closeConnect();
         }
 
         /**
@@ -49,7 +50,8 @@ namespace game {
                 return;
             }
             var cmd = '{"cmd":"uzwan_login","gameId":"0","from":"guzwan","userId":"3565526"}';
-            self._socket.writeUTF(cmd);
+            let test = { "name": "我是大帅哥", age: 1 }
+            self._socket.writeUTF(JSON.stringify(test));
         }
 
         /**
