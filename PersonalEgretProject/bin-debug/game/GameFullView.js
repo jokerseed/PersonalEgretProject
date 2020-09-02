@@ -30,6 +30,7 @@ var game;
             console.log(self.myChildNum);
             self.testRes();
             self.testTimer();
+            this.testByteArray();
         };
         //微信
         GameFullView.prototype.wx = function () {
@@ -76,6 +77,15 @@ var game;
             // timeManager.createTimer(500, 5);
             // timeManager2.startEnterFrame();
             // timeManager3.start();
+        };
+        /**测试byteArray */
+        GameFullView.prototype.testByteArray = function () {
+            var ba = new egret.ByteArray();
+            ba.writeInt(1111);
+            ba.writeUTF("全高清");
+            ba.position = 5;
+            // console.log(ba.readInt());
+            console.log(ba.readUTF());
         };
         return GameFullView;
     }(eui.Component));
