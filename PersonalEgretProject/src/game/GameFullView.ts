@@ -24,6 +24,7 @@ namespace game {
             console.log(self.myChildNum);
             self.testRes();
             self.testTimer();
+            this.testByteArray();
         }
 
         //微信
@@ -74,6 +75,18 @@ namespace game {
             // timeManager.createTimer(500, 5);
             // timeManager2.startEnterFrame();
             // timeManager3.start();
+        }
+
+        /**测试byteArray */
+        public testByteArray() {
+            let ba = new egret.ByteArray();
+            ba.writeInt(1111);
+            ba.writeUTF("全高清");
+
+            ba.position = 4;
+
+            // console.log(ba.readInt());
+            console.log(ba.readUTF());
         }
     }
 }

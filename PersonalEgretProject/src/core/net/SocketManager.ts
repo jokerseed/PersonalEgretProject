@@ -78,6 +78,7 @@ namespace game {
             }
             // let test = { "name": "我是大帅哥", age: 1 }
             // self._socket.writeUTF(JSON.stringify(test));
+
             self.sendData();
         }
 
